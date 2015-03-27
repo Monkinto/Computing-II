@@ -1,0 +1,32 @@
+Creating 48 stocks.
+
+Printing out the first element.
+
+Name of stock: 101
+Number of shares: 877819790
+Purchase cost per share: 304555640.000000
+Current cost per share: 1213110679.000000
+
+Printing out the last element.
+
+Name of stock: 530
+Number of shares: 7
+Purchase cost per share: 0.000000
+Current cost per share: 527.010000
+Removing the first and last elements.
+Printing out the first element.
+
+Name of stock: 559
+Number of shares: 3
+Purchase cost per share: 0.000000
+Current cost per share: 535.010000
+
+Printing out the first element.
+
+Name of stock: 467
+Number of shares: 0
+Purchase cost per share: 0.000000
+Current cost per share: 453.010000
+isEmpty 0
+getSize 47
+isEmpty 1

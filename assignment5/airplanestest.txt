@@ -1,0 +1,43 @@
+Enter the amount of seconds that you want the program to run for: 10
+Enter the percentage chance of a plane showing up in the air: .25
+Enter the percentage chance of a plane showing up on the ground: .25
+Flight 817 enters the air queue!
+Flight 839 enters the air queue!
+Flight 616 enters the ground queue!
+
+Flight 616 from the air queue is now using the runway!
+
+Flight 203 enters the air queue!
+Flight 847 enters the air queue!
+Flight 953 enters the ground queue!
+Flight 187 enters the air queue!
+Flight 457 enters the air queue!
+Flight 520 enters the ground queue!
+
+Flight 616 from the air queue is now using the runway!
+
+Flight 282 enters the air queue!
+Flight 795 enters the air queue!
+Flight 481 enters the air queue!
+Flight 803 enters the air queue!
+Flight 610 enters the ground queue!
+
+Flight 616 from the air queue is now using the runway!
+
+Flight 876 enters the air queue!
+Flight 260 enters the air queue!
+Flight 795 enters the air queue!
+Flight 211 enters the air queue!
+
+Flight 616 from the air queue is now using the runway!
+
+Flight 989 enters the air queue!
+Flight 715 enters the air queue!
+Flight 790 enters the ground queue!
+Flight 989 enters the air queue!
+Flight 769 enters the ground queue!
+
+Flight 616 from the air queue is now using the runway!
+
+Flight 603 enters the air queue!
+Flight 114 enters the ground queue!

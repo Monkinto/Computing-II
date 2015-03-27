@@ -1,0 +1,18 @@
+0 = Queue Filled
+1 = Queue Empty
+Queue Status: 1
+Adding: 0
+Adding: 1
+Adding: 2
+Adding: 3
+Adding: 4
+The size of the queue is: 5
+The front of the queue is: 0
+Removing 0
+Removing 1
+Removing 2
+The front of the queue is: 3
+0 = Queue Filled
+1 = Queue Empty
+Queue Status: 1
+The size of the queue is: 0
