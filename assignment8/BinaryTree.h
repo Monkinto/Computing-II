@@ -1,4 +1,4 @@
-typedef Data char* string;
+typedef char* Data;
 
 typedef struct node{
 	NodeData Data;
