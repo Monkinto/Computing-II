@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "BinaryTree.h"
 
 int hasLeft(NodePtr node){
@@ -34,23 +35,40 @@ BinTreePtr initBinaryTree(){
 }
 
 NodePtr makeNode(Data theData){
-	return NULL;
+	NodePtr theNode = malloc(sizeof(Node));
+	theNode->left = NULL;
+	theNode->right = NULL;
+	strcpy(theNode->theData, theData);
+	return theNode;
 }
 
 int isEmpty(BinTreePtr tree){
+	if(tree->root == NULL){
+		return 1;
+	}
 	return 0;
 }
 
 NodePtr addRoot(BinTreePtr tree, Data theData){
-	return NULL;
+	NodePtr theNode = makeNode(theData);
+	tree->root = theNode;
+	return theNode;
 }
 
 NodePtr addChild(NodePtr Parent, int leftOrRightChild, Data theData){
-	return NULL;
+	NodePtr theNode = makeNode(theData);
+	if(leftOrRightChild == 1 && hasLeft(Parent) == 0){
+		Parent->left = theNode;
+	}
+	if(leftOrRightChild == 0 && hasRight(Parent) == 0){
+		Parent->right = theNode;
+	}
+	return theNode;
 }
 
 NodePtr emptySubtree(NodePtr node){
 	if(node == NULL){
+		return NULL;
 	}
 	if(isLeaf(node) == 1){
 		free(node);
@@ -69,6 +87,8 @@ NodePtr emptySubtree(NodePtr node){
 }
 
 BinTreePtr destroyTree(BinTreePtr tree){
+	tree->root = emptySubtree(tree->root);
+	free(tree);
 	return NULL;
 }
 
@@ -79,19 +99,19 @@ int numNodesSubtree(NodePtr node){
 	return (numNodesSubtree(node->left) + numNodesSubtree(node->right) + 1);
 }
 
-int numLeavesSubTree(NodePtr node){
-	if(isLeaf(node) == 1){
-		return 1;
-	}
+int numLeavesSubtree(NodePtr node){
 	if(node == NULL){
 		return 0;
 	}
-	return (numLeavesSubTree(node->left) + numLeavesSubTree(node->right));
+	if(isLeaf(node) == 1){
+		return 1;
+	}
+	return (numLeavesSubtree(node->left) + numLeavesSubtree(node->right));
 }
 
 int heightSubtree(NodePtr node){
 	if(node == NULL){
 		return 0;
 	}
-	return (1 + max(heightSubtree(node->left)), heightSubtree(node->right));
+	return (1 + MAX(heightSubtree(node->left), heightSubtree(node->right)));
 }

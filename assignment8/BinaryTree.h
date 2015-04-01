@@ -1,4 +1,7 @@
 #define MAXSIZE 100
+
+#define MAX(a, b) ((a) > (b) ? ( a) : (b))
+
 typedef char Data[MAXSIZE] ;
 
 typedef struct node{
@@ -33,6 +36,6 @@ BinTreePtr destroyTree(BinTreePtr tree);
 
 int numNodesSubtree(NodePtr node);
 
-int numLeavesSubTree(NodePtr node);
+int numLeavesSubtree(NodePtr node);
 
 int heightSubtree(NodePtr node);
