@@ -24,7 +24,13 @@ int isLeaf(NodePtr node){
 }
 
 BinTreePtr initBinaryTree(){
-	return NULL;
+	BinTreePtr temp = malloc(sizeof(BinTree));
+	if(temp == NULL){
+		printf("ERROR RAN OUT OF MEMORY!!\n");
+		return NULL;
+	}
+	temp->root = NULL;
+	return temp;
 }
 
 NodePtr makeNode(Data theData){
@@ -44,7 +50,22 @@ NodePtr addChild(NodePtr Parent, int leftOrRightChild, Data theData){
 }
 
 NodePtr emptySubtree(NodePtr node){
-	return NULL;
+	if(node == NULL){
+	}
+	if(isLeaf(node) == 1){
+		free(node);
+		node = NULL;
+	} else {
+		if(hasLeft(node) == 1){
+			emptySubtree(node->left);
+		}
+		if(hasRight(node) == 1){
+			emptySubtree(node->right);
+		}
+	}
+	free(node);
+	node = NULL;
+	return node;
 }
 
 BinTreePtr destroyTree(BinTreePtr tree){
@@ -52,13 +73,25 @@ BinTreePtr destroyTree(BinTreePtr tree){
 }
 
 int numNodesSubtree(NodePtr node){
-	return 0;
+	if(node == NULL){
+		return 0;
+	}
+	return (numNodesSubtree(node->left) + numNodesSubtree(node->right) + 1);
 }
 
 int numLeavesSubTree(NodePtr node){
-	return 0;
+	if(isLeaf(node) == 1){
+		return 1;
+	}
+	if(node == NULL){
+		return 0;
+	}
+	return (numLeavesSubTree(node->left) + numLeavesSubTree(node->right));
 }
 
 int heightSubtree(NodePtr node){
-	return 0;
+	if(node == NULL){
+		return 0;
+	}
+	return (1 + max(heightSubtree(node->left)), heightSubtree(node->right));
 }
