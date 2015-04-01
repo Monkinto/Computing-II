@@ -3,14 +3,23 @@
 #include "BinaryTree.h"
 
 int hasLeft(NodePtr node){
+	if(node->left != NULL){
+		return 1;
+	}
 	return 0;
 }
 
 int hasRight(NodePtr node){
+	if(node->right != NULL){
+		return 1;
+	}
 	return 0;
 }
 
 int isLeaf(NodePtr node){
+	if(node->right == NULL && node->left == NULL){
+		return 1;
+	}
 	return 0;
 }
 

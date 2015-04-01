@@ -12,6 +12,6 @@ void play(BinTreePtr tree){
 
 int main(int argc, char const *argv[])
 {
-	/* code */
+	
 	return 0;
 }
