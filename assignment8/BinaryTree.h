@@ -6,8 +6,8 @@ typedef char Data[MAXSIZE] ;
 
 typedef struct node{
 	Data theData;
-	struct node * left;
-	struct node * right;
+	struct node *left;
+	struct node *right;
 }Node, *NodePtr;
 
 typedef struct tree{

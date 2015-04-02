@@ -7,28 +7,29 @@ void fillDecisionTree(BinTreePtr tree){
 	NodePtr CurrentNode;
 	NodePtr temp;
 	CurrentNode = addRoot(tree, "Do you want to be melee or ranged?");
-	temp = addChild(CurrentNode->left, 1, "Do you want to tank or DPS?");
-	/*CurrentNode = addChild(CurrentNode->right, 0, "Do you want to Heal or DPS?");
-	addChild(CurrentNode->left, 1, "Do you want to be able to do DPS?");
-	CurrentNode = addChild(CurrentNode->right, 0, "Do you want to be able to move and cast at the same time?");
-	addChild(CurrentNode->left, 1, "You should play a Hunter.");
-	addChild(CurrentNode->right, 0, "You should play a Druid.");
+	printf("%s\n", tree->root->theData);
+	temp = addChild(CurrentNode, 1, "Do you want to tank or DPS?");
+	CurrentNode = addChild(CurrentNode, 0, "Do you want to Heal or DPS?");
+	addChild(CurrentNode, 1, "Do you want to be able to do DPS?");
+	CurrentNode = addChild(CurrentNode, 0, "Do you want to be able to move and cast at the same time?");
+	addChild(CurrentNode, 1, "You should play a Hunter.");
+	addChild(CurrentNode, 0, "You should play a Druid.");
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->left;
-	addChild(CurrentNode->left, 1, "Do you want to tank or DPS?");
-	CurrentNode = addChild(CurrentNode->right, 0, "Do you want to be stealthy?");
-	addChild(CurrentNode->left, 1, "You should play a Rouge.");
-	addChild(CurrentNode->right, 0, "You should play a Death Knight");
+	addChild(CurrentNode, 1, "Do you want to tank or DPS?");
+	CurrentNode = addChild(CurrentNode, 0, "Do you want to be stealthy?");
+	addChild(CurrentNode, 1, "You should play a Rouge.");
+	addChild(CurrentNode, 0, "You should play a Death Knight");
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->left;
-	CurrentNode = addChild(CurrentNode->left, 1, "Do you want to have tons of damage mobility?");
-	addChild(CurrentNode->left, 1, "You should be a Monk.");
-	addChild(CurrentNode->right, 0, "You should be a Warrior.");
+	CurrentNode = addChild(CurrentNode, 1, "Do you want to have tons of damage mobility?");
+	addChild(CurrentNode, 1, "You should be a Monk.");
+	addChild(CurrentNode, 0, "You should be a Warrior.");
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->right;
 	CurrentNode = CurrentNode->left;
-	addChild(CurrentNode->left, 1, "You should play a Monk.");
-	addChild(CurrentNode->right, 0, "You should play a priest.");*/
+	addChild(CurrentNode, 1, "You should play a Monk.");
+	addChild(CurrentNode, 0, "You should play a priest.");
 }
 
 int play(BinTreePtr tree){
