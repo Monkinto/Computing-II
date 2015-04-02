@@ -7,7 +7,6 @@ void fillDecisionTree(BinTreePtr tree){
 	NodePtr CurrentNode;
 	NodePtr temp;
 	CurrentNode = addRoot(tree, "Do you want to be melee or ranged?");
-	printf("%s\n", tree->root->theData);
 	temp = addChild(CurrentNode, 1, "Do you want to tank or DPS?");
 	CurrentNode = addChild(CurrentNode, 0, "Do you want to Heal or DPS?");
 	addChild(CurrentNode, 1, "Do you want to be able to do DPS?");
@@ -16,15 +15,15 @@ void fillDecisionTree(BinTreePtr tree){
 	addChild(CurrentNode, 0, "You should play a Druid.");
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->left;
-	addChild(CurrentNode, 1, "Do you want to tank or DPS?");
+	addChild(CurrentNode, 1, "Do you want to have tons of mobility?");
+	addChild(CurrentNode->left, 1, "You should be a Monk.");
+	addChild(CurrentNode->left, 0, "You should be a Warrior.");
 	CurrentNode = addChild(CurrentNode, 0, "Do you want to be stealthy?");
 	addChild(CurrentNode, 1, "You should play a Rouge.");
 	addChild(CurrentNode, 0, "You should play a Death Knight");
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->left;
-	CurrentNode = addChild(CurrentNode, 1, "Do you want to have tons of damage mobility?");
-	addChild(CurrentNode, 1, "You should be a Monk.");
-	addChild(CurrentNode, 0, "You should be a Warrior.");
+	
 	CurrentNode = tree->root;
 	CurrentNode = CurrentNode->right;
 	CurrentNode = CurrentNode->left;
@@ -33,7 +32,24 @@ void fillDecisionTree(BinTreePtr tree){
 }
 
 int play(BinTreePtr tree){
-	return 1;
+	NodePtr theNODE = tree->root;
+	int temp;
+	
+	while(isLeaf(theNODE) == 0){
+		printf("%s\nEnter 1 for yes, 0 for no: ", theNODE->theData);
+		scanf("%d", &temp);
+		if(temp == 1){
+			theNODE = theNODE->left;
+		} else {
+			theNODE = theNODE->right;
+		}
+		
+	}
+	printf("%s\n", theNODE->theData);
+	
+	printf("\nDo you want to do the questionaire again: ");
+	scanf("%d", &temp);
+	return temp;
 }
 
 int main(int argc, char const *argv[])
@@ -41,12 +57,12 @@ int main(int argc, char const *argv[])
 	BinTreePtr theTree = initBinaryTree();
 	int repeat;
 	fillDecisionTree(theTree);
-	printf("\nThe number of nodes is: %d\n", numNodesSubtree(theTree->root));
-	printf("The number of leaves is: %d\n", numLeavesSubtree(theTree->root));
-	printf("The height of the tree is: %d\n", heightSubtree(theTree->root));
+	//printf("\nThe number of nodes is: %d\n", numNodesSubtree(theTree->root));
+	//printf("The number of leaves is: %d\n", numLeavesSubtree(theTree->root));
+	//printf("The height of the tree is: %d\n", heightSubtree(theTree->root));
 	do{
 		repeat = play(theTree);
-	}while(repeat == 0);
+	}while(repeat == 1);
 	destroyTree(theTree);
 	return 0;
 }

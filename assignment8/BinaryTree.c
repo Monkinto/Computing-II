@@ -57,10 +57,10 @@ NodePtr addRoot(BinTreePtr tree, Data theData){
 
 NodePtr addChild(NodePtr Parent, int leftOrRightChild, Data theData){
 	NodePtr theNode = makeNode(theData);
-	if(leftOrRightChild == 1 /* && hasLeft(Parent) == 0*/){
+	if(leftOrRightChild == 1 && hasLeft(Parent) == 0){
 		Parent->left = theNode;
 	}
-	if(leftOrRightChild == 0 /*&& hasRight(Parent) == 0*/){
+	if(leftOrRightChild == 0 && hasRight(Parent) == 0){
 		Parent->right = theNode;
 	}
 	return theNode;
