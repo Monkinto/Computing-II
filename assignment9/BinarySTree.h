@@ -28,7 +28,7 @@ int isEmpty(BinTreePtr tree);
 
 NodePtr addRoot(BinTreePtr tree, Data theData);
 
-NodePtr addChild(NodePtr Parent, int leftOrRightChild, Data theData);
+NodePtr addBST(NodePtr node, Data theData);
 
 NodePtr emptySubtree(NodePtr node);
 
@@ -39,3 +39,8 @@ int numNodesSubtree(NodePtr node);
 int numLeavesSubtree(NodePtr node);
 
 int heightSubtree(NodePtr node);
+
+void inorderTraverse(NodePtr node);
+
+NodePtr search(NodePtr node, char key[]);
+

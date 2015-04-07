@@ -55,13 +55,28 @@ NodePtr addRoot(BinTreePtr tree, Data theData){
 	return theNode;
 }
 
-NodePtr addChild(NodePtr Parent, int leftOrRightChild, Data theData){
-	NodePtr theNode = makeNode(theData);
-	if(leftOrRightChild == 1 && hasLeft(Parent) == 0){
-		Parent->left = theNode;
-	}
-	if(leftOrRightChild == 0 && hasRight(Parent) == 0){
-		Parent->right = theNode;
+NodePtr addBST(NodePtr node, Data theData){
+	if(node != NULL){
+		if(strcmp(theData, node->theData) == 0){
+			printf("You have already taken %s.\n", theData);
+			return NULL;
+		}
+		if(strcmp(theData, node->theData) < 0){
+			if(node->left == NULL){
+				node->left = makeNode(theData);
+				return node->left;
+			} else {
+				return addBST(node->left, theData);
+			}
+		}
+		if(strcmp(theData, node->theData) > 0){
+			if(node->right == NULL){
+				node->right = makeNode(theData);
+				return node->right;
+			} else {
+				return addBST(node->right, theData);
+			}
+		}
 	}
 	return theNode;
 }
@@ -114,4 +129,33 @@ int heightSubtree(NodePtr node){
 		return 0;
 	}
 	return (1 + MAX(heightSubtree(node->left), heightSubtree(node->right)));
+}
+
+void inorderTraverse(NodePtr node){
+	if(node != NULL){
+		if(isLeaf(node) == 1){
+			printf("%s\n", node->theData);
+		} else {
+			inorderTraverse(node->left);
+			printf("%s\n", node->theData);
+			inorderTraverse(node->right);
+		}
+	}
+}
+
+NodePtr search(NodePtr node, char key[]){
+	if(node != NULL){
+		if(strcmp(key, node->theData) < 0){
+			return search(node->left, key);
+		}
+		if(strcmp(key, node->theData) > 0){
+			return search(node->right, key);
+		}
+		if(strcmp(key, node->theData)){
+			printf("You have taken course %s before.\n" key);
+		}
+	} else {
+		printf("You have not taken couse %s before.\n", key);
+		return node;
+	}
 }
