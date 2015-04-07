@@ -43,4 +43,3 @@ int heightSubtree(NodePtr node);
 void inorderTraverse(NodePtr node);
 
 NodePtr search(NodePtr node, char key[]);
-

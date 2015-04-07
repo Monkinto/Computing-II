@@ -78,7 +78,7 @@ NodePtr addBST(NodePtr node, Data theData){
 			}
 		}
 	}
-	return theNode;
+	return node;
 }
 
 NodePtr emptySubtree(NodePtr node){
@@ -152,7 +152,7 @@ NodePtr search(NodePtr node, char key[]){
 			return search(node->right, key);
 		}
 		if(strcmp(key, node->theData)){
-			printf("You have taken course %s before.\n" key);
+			printf("You have taken course %s before.\n", key);
 		}
 	} else {
 		printf("You have not taken couse %s before.\n", key);
