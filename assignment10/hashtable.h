@@ -3,14 +3,15 @@
 #include <string.h>
 
 #define hashtableSize 67
+#define MAXSTRINGSIZE 100
 
 typedef char* string;
 
 typedef struct data{
 	int number;
-	string name;
-	string semester;
-	string instructor;
+	char name[MAXSTRINGSIZE];
+	char semester[MAXSTRINGSIZE];
+	char instructor[MAXSTRINGSIZE];
 	int liked;
 } Data, *DataPtr;
 

@@ -1,7 +1,7 @@
 #include "hashtable.h"
 
 void readInData(HashTablePtr theTable, FILE* fin, Data tempData){
-	string temp;
+	string temp = malloc(MAXSTRINGSIZE);
 	while(fscanf(fin, "%s", temp) != EOF){
 		tempData.number = atoi(temp);
 		fscanf(fin, "%s", tempData.name);
@@ -9,7 +9,7 @@ void readInData(HashTablePtr theTable, FILE* fin, Data tempData){
 		fscanf(fin, "%s", tempData.instructor);
 		fscanf(fin, "%s", temp);
 		tempData.liked = atoi(temp);
-		//add(theTable, tempData);
+		add(theTable, tempData);
 	}
 }
 
