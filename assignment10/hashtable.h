@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define hashtableSize 67
+#define hashtableSize 100000
 #define MAXSTRINGSIZE 100
 
 typedef char* string;

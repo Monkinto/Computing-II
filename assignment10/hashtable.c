@@ -11,7 +11,8 @@ HashTablePtr initHashTable(){
 }
 
 int hash(int number){
-	return number % hashtableSize;
+	printf("Hash of:%d = %d\n", number, number);
+	return number;
 }
 
 NodePtr search(HashTablePtr theTable, int number){
